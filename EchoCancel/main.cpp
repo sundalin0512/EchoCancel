@@ -1,22 +1,17 @@
 #include <stdio.h>
-#include "delayEstimation\LMS.h"
-#include "delayEstimation\NLMS.h"
-#include "delayEstimation\RLS.h"
-#include "delayEstimation\delayEstimation.h"
-#include "delayEstimation/delayEstimation_initialize.h"
-#include "delayEstimation/delayEstimation_terminate.h"
+#include "delayEstimation/LMS.h"
+#include "delayEstimation/NLMS.h"
+#include "delayEstimation/RLS.h"
+#include "delayEstimation/delayEstimation.h"
 #include "delayEstimation/delayEstimation_emxAPI.h"
-//#include "delayEstimation\delayEstimation_terminate.h"
-//#include "delayEstimation\delayEstimation_emxAPI.h"
-//#include "delayEstimation\delayEstimation_initialize.h"
+
 
 using namespace std;
-const int audioLength10ms = 4410;
+int audioLength1s = 44100;
 
 int main()
 {
 
-	delayEstimation_initialize();
 	FILE *fp_far = fopen("farEndSound.wav", "rb");
 	FILE *fp_near = fopen("mix.wav", "rb");
 	FILE *fp_out = fopen("out.wav", "wb");
@@ -34,7 +29,7 @@ int main()
 	fread(far_frame, sizeof(char), 44, fp_far);
 	long fileBegin = ftell(fp_far);
 	fwrite(far_frame, sizeof(char), 44, fp_out);
-	fread(near_frame, sizeof(char), 44, fp_far);
+	fread(near_frame, sizeof(char), 44, fp_near);
 
 	delete[]far_frame;
 	delete[]near_frame;
@@ -43,32 +38,36 @@ int main()
 	fseek(fp_far, 0, SEEK_END);
 	long fileEnd = ftell(fp_far);
 
-	int fileLength = fileEnd - fileBegin;
-	far_frame = new short[fileLength];
-	near_frame = new short[fileLength];
-	out_frame = new short[fileLength];
 
-	fread(far_frame, sizeof(short), fileLength, fp_far);
-	fread(near_frame, sizeof(short), fileLength, fp_near);
+	fseek(fp_far, 44, SEEK_SET);
+	fseek(fp_near, 44, SEEK_SET);
+	int fileLength = (fileEnd - fileBegin)/2;
+	audioLength1s = fileLength;
+	far_frame = new short[audioLength1s];
+	near_frame = new short[audioLength1s];
+	out_frame = new short[audioLength1s];
 
-	float *farEnd_f = new float[fileLength];
-	for (int i = 0; i < fileLength; i++)
+	fread(far_frame, sizeof(short), audioLength1s, fp_far);
+	fread(near_frame, sizeof(short), audioLength1s, fp_near);
+
+	float *farEnd_f = new float[audioLength1s];
+	for (int i = 0; i < audioLength1s; i++)
 	{
 		farEnd_f[i] = far_frame[i] / float(65536 / 2);
 	}
 
 	emxArray_real32_T  *farEnd;
-	farEnd = emxCreateWrapper_real32_T(farEnd_f, fileLength, 1);
+	farEnd = emxCreateWrapper_real32_T(farEnd_f, audioLength1s, 1);
 	
 
-	float *nearEnd_f = new float[fileLength];
-	for (int i = 0; i < fileLength; i++)
+	float *nearEnd_f = new float[audioLength1s];
+	for (int i = 0; i < audioLength1s; i++)
 	{
 		nearEnd_f[i] = near_frame[i] / float(65536 / 2);
 	}
 
 	emxArray_real32_T  *nearEnd;
-	nearEnd = emxCreateWrapper_real32_T(nearEnd_f, fileLength, 1);
+	nearEnd = emxCreateWrapper_real32_T(nearEnd_f, audioLength1s, 1);
 
 	int delay = delayEstimation(farEnd, nearEnd);
 
@@ -78,7 +77,6 @@ int main()
 
 
 
-
-	delayEstimation_terminate();
+	return 0;
 
 }
