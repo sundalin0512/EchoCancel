@@ -69,20 +69,28 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files\MATLAB\R2015b\extern\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
+    <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -111,6 +119,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="delayEstimation\delayEstimation.cpp" />
+    <ClCompile Include="delayEstimation\delayEstimation_emxAPI.cpp" />
+    <ClCompile Include="delayEstimation\delayEstimation_emxutil.cpp" />
+    <ClCompile Include="delayEstimation\delayEstimation_initialize.cpp" />
+    <ClCompile Include="delayEstimation\delayEstimation_rtwutil.cpp" />
+    <ClCompile Include="delayEstimation\delayEstimation_terminate.cpp" />
+    <ClCompile Include="delayEstimation\fft.cpp" />
+    <ClCompile Include="delayEstimation\ifft.cpp" />
+    <ClCompile Include="delayEstimation\LMS.cpp" />
+    <ClCompile Include="delayEstimation\NLMS.cpp" />
+    <ClCompile Include="delayEstimation\relop.cpp" />
+    <ClCompile Include="delayEstimation\RLS.cpp" />
+    <ClCompile Include="delayEstimation\rtGetInf.cpp" />
+    <ClCompile Include="delayEstimation\rtGetNaN.cpp" />
+    <ClCompile Include="delayEstimation\rt_nonfinite.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="delayEstimation\delayEstimation.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_emxAPI.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_emxutil.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_initialize.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_rtwutil.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_terminate.h" />
+    <ClInclude Include="delayEstimation\delayEstimation_types.h" />
+    <ClInclude Include="delayEstimation\fft.h" />
+    <ClInclude Include="delayEstimation\ifft.h" />
+    <ClInclude Include="delayEstimation\LMS.h" />
+    <ClInclude Include="delayEstimation\NLMS.h" />
+    <ClInclude Include="delayEstimation\relop.h" />
+    <ClInclude Include="delayEstimation\RLS.h" />
+    <ClInclude Include="delayEstimation\rtGetInf.h" />
+    <ClInclude Include="delayEstimation\rtGetNaN.h" />
+    <ClInclude Include="delayEstimation\rtwtypes.h" />
+    <ClInclude Include="delayEstimation\rt_defines.h" />
+    <ClInclude Include="delayEstimation\rt_nonfinite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

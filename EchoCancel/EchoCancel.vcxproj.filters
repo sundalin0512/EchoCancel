@@ -14,4 +14,110 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation_emxAPI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation_emxutil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation_initialize.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation_rtwutil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\delayEstimation_terminate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\fft.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\ifft.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\LMS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\NLMS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\relop.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\RLS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\rt_nonfinite.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\rtGetInf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="delayEstimation\rtGetNaN.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="delayEstimation\delayEstimation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_emxAPI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_emxutil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_initialize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_rtwutil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_terminate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\delayEstimation_types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\fft.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\ifft.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\LMS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\NLMS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\relop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\RLS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\rt_defines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\rt_nonfinite.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\rtGetInf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\rtGetNaN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="delayEstimation\rtwtypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
