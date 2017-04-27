@@ -1,13 +1,10 @@
 #include <stdio.h>
-#include "delayEstimation/LMS.h"
-#include "delayEstimation/NLMS.h"
-#include "delayEstimation/RLS.h"
 #include "delayEstimation/delayEstimation.h"
 #include "delayEstimation/delayEstimation_emxAPI.h"
 
 
 using namespace std;
-int audioLength1s = 44100;
+int audioLength1s = 4410;
 
 int main()
 {
@@ -42,7 +39,7 @@ int main()
 	fseek(fp_far, 44, SEEK_SET);
 	fseek(fp_near, 44, SEEK_SET);
 	int fileLength = (fileEnd - fileBegin)/2;
-	audioLength1s = fileLength;
+	//audioLength1s = fileLength;
 	far_frame = new short[audioLength1s];
 	near_frame = new short[audioLength1s];
 	out_frame = new short[audioLength1s];
@@ -72,6 +69,7 @@ int main()
 	int delay = delayEstimation(farEnd, nearEnd);
 
 
+	float *echo_f = new float[audioLength1s];
 
 
 

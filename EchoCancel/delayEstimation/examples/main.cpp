@@ -2,7 +2,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 3.3
-// C/C++ source code generated on  : 14-Apr-2017 20:04:32
+// C/C++ source code generated on  : 27-Apr-2017 20:29:10
 //
 
 //***********************************************************************
@@ -31,17 +31,11 @@
 //***********************************************************************
 // Include Files
 #include "rt_nonfinite.h"
-#include "LMS.h"
-#include "NLMS.h"
-#include "RLS.h"
 #include "delayEstimation.h"
 #include "main.h"
-#include "delayEstimation_terminate.h"
 #include "delayEstimation_emxAPI.h"
-#include "delayEstimation_initialize.h"
 
 // Function Declarations
-static void argInit_1x4000_real32_T(float result[4000]);
 static emxArray_real32_T *argInit_1xUnbounded_real32_T();
 static emxArray_real32_T *argInit_Unboundedx1_real32_T();
 static float argInit_real32_T();
@@ -51,22 +45,6 @@ static void main_RLS();
 static void main_delayEstimation();
 
 // Function Definitions
-
-//
-// Arguments    : float result[4000]
-// Return Type  : void
-//
-static void argInit_1x4000_real32_T(float result[4000])
-{
-  int idx1;
-
-  // Loop over the array to initialize each element.
-  for (idx1 = 0; idx1 < 4000; idx1++) {
-    // Set the value of the array element.
-    // Change this value to the value that the application requires.
-    result[idx1] = argInit_real32_T();
-  }
-}
 
 //
 // Arguments    : void
@@ -165,24 +143,30 @@ static void main_LMS()
 //
 static void main_NLMS()
 {
+  emxArray_real32_T *b_yn;
   emxArray_real32_T *W;
-  float fv0[4000];
-  float fv1[4000];
-  float yn_data[4000];
-  int yn_size[2];
-  float en_data[4000];
-  int en_size[1];
+  emxArray_real32_T *en;
+  emxArray_real32_T *xn;
+  emxArray_real32_T *dn;
+  emxInitArray_real32_T(&b_yn, 2);
   emxInitArray_real32_T(&W, 2);
+  emxInitArray_real32_T(&en, 1);
 
   // Initialize function 'NLMS' input arguments.
   // Initialize function input argument 'xn'.
+  xn = argInit_1xUnbounded_real32_T();
+
   // Initialize function input argument 'dn'.
+  dn = argInit_1xUnbounded_real32_T();
+
   // Call the entry-point 'NLMS'.
-  argInit_1x4000_real32_T(fv0);
-  argInit_1x4000_real32_T(fv1);
-  NLMS(fv0, fv1, argInit_real32_T(), argInit_real32_T(), argInit_real32_T(),
-       yn_data, yn_size, W, en_data, en_size);
+  NLMS(xn, dn, argInit_real32_T(), argInit_real32_T(), argInit_real32_T(), b_yn,
+       W, en);
+  emxDestroyArray_real32_T(en);
   emxDestroyArray_real32_T(W);
+  emxDestroyArray_real32_T(b_yn);
+  emxDestroyArray_real32_T(dn);
+  emxDestroyArray_real32_T(xn);
 }
 
 //
@@ -191,24 +175,29 @@ static void main_NLMS()
 //
 static void main_RLS()
 {
+  emxArray_real32_T *b_yn;
   emxArray_real32_T *W;
-  float fv2[4000];
-  float fv3[4000];
-  float yn_data[4000];
-  int yn_size[2];
-  float en_data[4000];
-  int en_size[1];
+  emxArray_real32_T *en;
+  emxArray_real32_T *xn;
+  emxArray_real32_T *dn;
+  emxInitArray_real32_T(&b_yn, 2);
   emxInitArray_real32_T(&W, 2);
+  emxInitArray_real32_T(&en, 1);
 
   // Initialize function 'RLS' input arguments.
   // Initialize function input argument 'xn'.
+  xn = argInit_1xUnbounded_real32_T();
+
   // Initialize function input argument 'dn'.
+  dn = argInit_1xUnbounded_real32_T();
+
   // Call the entry-point 'RLS'.
-  argInit_1x4000_real32_T(fv2);
-  argInit_1x4000_real32_T(fv3);
-  RLS(fv2, fv3, argInit_real32_T(), argInit_real32_T(), yn_data, yn_size, W,
-      en_data, en_size);
+  RLS(xn, dn, argInit_real32_T(), argInit_real32_T(), b_yn, W, en);
+  emxDestroyArray_real32_T(en);
   emxDestroyArray_real32_T(W);
+  emxDestroyArray_real32_T(b_yn);
+  emxDestroyArray_real32_T(dn);
+  emxDestroyArray_real32_T(xn);
 }
 
 //

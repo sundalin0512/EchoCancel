@@ -2,14 +2,11 @@
 // File: delayEstimation_emxutil.cpp
 //
 // MATLAB Coder version            : 3.3
-// C/C++ source code generated on  : 14-Apr-2017 20:04:32
+// C/C++ source code generated on  : 27-Apr-2017 20:29:10
 //
 
 // Include Files
 #include "rt_nonfinite.h"
-#include "LMS.h"
-#include "NLMS.h"
-#include "RLS.h"
 #include "delayEstimation.h"
 #include "delayEstimation_emxutil.h"
 

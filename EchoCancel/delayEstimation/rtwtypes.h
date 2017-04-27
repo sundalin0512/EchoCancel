@@ -2,7 +2,7 @@
  * File: rtwtypes.h
  *
  * MATLAB Coder version            : 3.3
- * C/C++ source code generated on  : 14-Apr-2017 20:04:32
+ * C/C++ source code generated on  : 27-Apr-2017 20:29:10
  */
 
 #ifndef RTWTYPES_H
@@ -12,9 +12,9 @@
 
 /*=======================================================================*
  * Target hardware information
- *   Device type: Intel->x86-64 (Windows64)
+ *   Device type: Generic->MATLAB Host Computer
  *   Number of bits:     char:   8    short:   16    int:  32
- *                       long:  32
+ *                       long:  32    long long:  64
  *                       native word size:  64
  *   Byte ordering: LittleEndian
  *   Signed integer division rounds to: Zero
@@ -33,12 +33,14 @@ typedef short int16_T;
 typedef unsigned short uint16_T;
 typedef int int32_T;
 typedef unsigned int uint32_T;
+typedef long long int64_T;
+typedef unsigned long long uint64_T;
 typedef float real32_T;
 typedef double real64_T;
 
 /*===========================================================================*
  * Generic type definitions: real_T, time_T, boolean_T, int_T, uint_T,       *
- *                           ulong_T, char_T and byte_T.                     *
+ *                           ulong_T, ulonglong_T, char_T and byte_T.        *
  *===========================================================================*/
 typedef double real_T;
 typedef double time_T;
@@ -46,6 +48,7 @@ typedef unsigned char boolean_T;
 typedef int int_T;
 typedef unsigned int uint_T;
 typedef unsigned long ulong_T;
+typedef unsigned long long ulonglong_T;
 typedef char char_T;
 typedef char_T byte_T;
 
@@ -99,6 +102,16 @@ typedef struct {
   uint32_T im;
 } cuint32_T;
 
+typedef struct {
+  int64_T re;
+  int64_T im;
+} cint64_T;
+
+typedef struct {
+  uint64_T re;
+  uint64_T im;
+} cuint64_T;
+
 /*=======================================================================*
  * Min and Max:                                                          *
  *   int8_T, int16_T, int32_T     - signed 8, 16, or 32 bit integers     *
@@ -116,6 +129,10 @@ typedef struct {
 #define MIN_int32_T                    ((int32_T)(-2147483647-1))
 #define MAX_uint32_T                   ((uint32_T)(0xFFFFFFFFU))
 #define MIN_uint32_T                   ((uint32_T)(0))
+#define MAX_int64_T                    ((int64_T)(9223372036854775807LL))
+#define MIN_int64_T                    ((int64_T)(-9223372036854775807LL-1LL))
+#define MAX_uint64_T                   ((uint64_T)(0xFFFFFFFFFFFFFFFFULL))
+#define MIN_uint64_T                   ((uint64_T)(0ULL))
 
 /* Logical type definitions */
 #if !defined(__cplusplus) && !defined(__true_false_are_keywords)

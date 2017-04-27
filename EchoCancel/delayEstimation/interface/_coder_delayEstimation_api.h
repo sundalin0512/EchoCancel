@@ -2,7 +2,7 @@
  * File: _coder_delayEstimation_api.h
  *
  * MATLAB Coder version            : 3.3
- * C/C++ source code generated on  : 14-Apr-2017 20:04:32
+ * C/C++ source code generated on  : 27-Apr-2017 20:29:10
  */
 
 #ifndef _CODER_DELAYESTIMATION_API_H
@@ -47,13 +47,13 @@ extern void LMS(emxArray_real32_T *xn, emxArray_real32_T *dn, real32_T M,
                 real32_T mu, real32_T itr, emxArray_real32_T *b_yn,
                 emxArray_real32_T *W, emxArray_real32_T *en);
 extern void LMS_api(const mxArray * const prhs[5], const mxArray *plhs[3]);
-extern void NLMS(real32_T xn[4000], real32_T dn[4000], real32_T M, real32_T mu,
-                 real32_T itr, real32_T yn_data[], int32_T yn_size[2],
-                 emxArray_real32_T *W, real32_T en_data[], int32_T en_size[1]);
+extern void NLMS(emxArray_real32_T *xn, emxArray_real32_T *dn, real32_T M,
+                 real32_T mu, real32_T itr, emxArray_real32_T *b_yn,
+                 emxArray_real32_T *W, emxArray_real32_T *en);
 extern void NLMS_api(const mxArray * const prhs[5], const mxArray *plhs[3]);
-extern void RLS(real32_T xn[4000], real32_T dn[4000], real32_T M, real32_T itr,
-                real32_T yn_data[], int32_T yn_size[2], emxArray_real32_T *W,
-                real32_T en_data[], int32_T en_size[1]);
+extern void RLS(emxArray_real32_T *xn, emxArray_real32_T *dn, real32_T M,
+                real32_T itr, emxArray_real32_T *b_yn, emxArray_real32_T *W,
+                emxArray_real32_T *en);
 extern void RLS_api(const mxArray * const prhs[4], const mxArray *plhs[3]);
 extern real32_T delayEstimation(emxArray_real32_T *farEndSound,
   emxArray_real32_T *nearEndSound);

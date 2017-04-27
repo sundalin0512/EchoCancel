@@ -2,7 +2,7 @@
 // File: delayEstimation.h
 //
 // MATLAB Coder version            : 3.3
-// C/C++ source code generated on  : 14-Apr-2017 20:04:32
+// C/C++ source code generated on  : 27-Apr-2017 20:29:10
 //
 #ifndef DELAYESTIMATION_H
 #define DELAYESTIMATION_H
@@ -18,8 +18,19 @@
 #include "delayEstimation_types.h"
 
 // Function Declarations
+extern void LMS(const emxArray_real32_T *xn, const emxArray_real32_T *dn, float
+                M, float mu, float itr, emxArray_real32_T *b_yn,
+                emxArray_real32_T *W, emxArray_real32_T *en);
+extern void NLMS(const emxArray_real32_T *xn, const emxArray_real32_T *dn, float
+                 M, float mu, float itr, emxArray_real32_T *b_yn,
+                 emxArray_real32_T *W, emxArray_real32_T *en);
+extern void RLS(const emxArray_real32_T *xn, const emxArray_real32_T *dn, float
+                M, float itr, emxArray_real32_T *b_yn, emxArray_real32_T *W,
+                emxArray_real32_T *en);
 extern float delayEstimation(const emxArray_real32_T *farEndSound, const
   emxArray_real32_T *nearEndSound);
+extern void delayEstimation_initialize();
+extern void delayEstimation_terminate();
 
 #endif
 

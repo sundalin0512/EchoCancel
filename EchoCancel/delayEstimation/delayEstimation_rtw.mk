@@ -2,7 +2,7 @@
 ## Makefile generated for MATLAB file/project 'delayEstimation'. 
 ## 
 ## Makefile     : delayEstimation_rtw.mk
-## Generated on : Fri Apr 14 20:04:46 2017
+## Generated on : Thu Apr 27 20:29:23 2017
 ## MATLAB Coder version: 3.3 (R2017a)
 ## 
 ## Build Info:
@@ -134,15 +134,15 @@ ECHO                = @echo
 MV                  = @ren
 RUN                 = @cmd /C
 
-#----------------------------------------
-# "Faster Builds" Build Configuration
-#----------------------------------------
+#--------------------------------------
+# "Faster Runs" Build Configuration
+#--------------------------------------
 
 ARFLAGS              = /nologo
 CFLAGS               = $(cflags) $(CVARSFLAG) $(CFLAGS_ADDITIONAL) \
-                       /Od /Oy-
+                       /O2 /Oy-
 CPPFLAGS             = /TP $(cflags) $(CVARSFLAG) $(CPPFLAGS_ADDITIONAL) \
-                       /Od /Oy-
+                       /O2 /Oy-
 CPP_LDFLAGS          = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN)
 CPP_SHAREDLIB_LDFLAGS  = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN) \
                          -dll -def:$(DEF_FILE)
@@ -151,7 +151,7 @@ EXECUTE_FLAGS        =
 LDFLAGS              = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN)
 MEX_CPPFLAGS         =
 MEX_CPPLDFLAGS       =
-MEX_CFLAGS           = $(MEX_ARCH) OPTIMFLAGS="/Od /Oy- $(MDFLAG) $(DEFINES)" $(MEX_OPTS_FLAG)
+MEX_CFLAGS           = $(MEX_ARCH) OPTIMFLAGS="/O2 /Oy- $(MDFLAG) $(DEFINES)" $(MEX_OPTS_FLAG)
 MEX_LDFLAGS          = LDFLAGS=='$$LDFLAGS'
 MAKE_FLAGS           = -f $(MAKEFILE)
 SHAREDLIB_LDFLAGS    = $(ldebug) $(conflags) $(LIBS_TOOLCHAIN) \
@@ -204,7 +204,7 @@ DEFINES = $(DEFINES_STANDARD)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_rtwutil.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_initialize.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_terminate.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation.cpp $(START_DIR)\codegen\lib\delayEstimation\LMS.cpp $(START_DIR)\codegen\lib\delayEstimation\NLMS.cpp $(START_DIR)\codegen\lib\delayEstimation\RLS.cpp $(START_DIR)\codegen\lib\delayEstimation\fft.cpp $(START_DIR)\codegen\lib\delayEstimation\relop.cpp $(START_DIR)\codegen\lib\delayEstimation\ifft.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_emxutil.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_emxAPI.cpp $(START_DIR)\codegen\lib\delayEstimation\rt_nonfinite.cpp $(START_DIR)\codegen\lib\delayEstimation\rtGetNaN.cpp $(START_DIR)\codegen\lib\delayEstimation\rtGetInf.cpp
+SRCS = $(START_DIR)\codegen\lib\delayEstimation\delayEstimation.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_emxutil.cpp $(START_DIR)\codegen\lib\delayEstimation\delayEstimation_emxAPI.cpp $(START_DIR)\codegen\lib\delayEstimation\rt_nonfinite.cpp $(START_DIR)\codegen\lib\delayEstimation\rtGetNaN.cpp $(START_DIR)\codegen\lib\delayEstimation\rtGetInf.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -212,7 +212,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = delayEstimation_rtwutil.obj delayEstimation_initialize.obj delayEstimation_terminate.obj delayEstimation.obj LMS.obj NLMS.obj RLS.obj fft.obj relop.obj ifft.obj delayEstimation_emxutil.obj delayEstimation_emxAPI.obj rt_nonfinite.obj rtGetNaN.obj rtGetInf.obj
+OBJS = delayEstimation.obj delayEstimation_emxutil.obj delayEstimation_emxAPI.obj rt_nonfinite.obj rtGetNaN.obj rtGetInf.obj
 
 ALL_OBJS = $(OBJS)
 
