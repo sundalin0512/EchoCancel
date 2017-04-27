@@ -2,7 +2,7 @@
 // File: delayEstimation_emxAPI.h
 //
 // MATLAB Coder version            : 3.3
-// C/C++ source code generated on  : 27-Apr-2017 20:29:10
+// C/C++ source code generated on  : 27-Apr-2017 21:17:15
 //
 #ifndef DELAYESTIMATION_EMXAPI_H
 #define DELAYESTIMATION_EMXAPI_H

@@ -27,33 +27,6 @@
     <ClCompile Include="delayEstimation\delayEstimation_emxutil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="delayEstimation\delayEstimation_initialize.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\delayEstimation_rtwutil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\delayEstimation_terminate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\fft.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\ifft.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\LMS.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\NLMS.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\relop.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="delayEstimation\RLS.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="delayEstimation\rt_nonfinite.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -74,34 +47,7 @@
     <ClInclude Include="delayEstimation\delayEstimation_emxutil.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="delayEstimation\delayEstimation_initialize.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\delayEstimation_rtwutil.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\delayEstimation_terminate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="delayEstimation\delayEstimation_types.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\fft.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\ifft.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\LMS.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\NLMS.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\relop.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="delayEstimation\RLS.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="delayEstimation\rt_defines.h">

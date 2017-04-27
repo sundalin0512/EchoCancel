@@ -4,7 +4,7 @@
 
 
 using namespace std;
-int audioLength1s = 4410;
+int audioLength1s = 44100;
 
 int main()
 {
@@ -43,37 +43,44 @@ int main()
 	far_frame = new short[audioLength1s];
 	near_frame = new short[audioLength1s];
 	out_frame = new short[audioLength1s];
-
-	fread(far_frame, sizeof(short), audioLength1s, fp_far);
-	fread(near_frame, sizeof(short), audioLength1s, fp_near);
-
-	float *farEnd_f = new float[audioLength1s];
-	for (int i = 0; i < audioLength1s; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		farEnd_f[i] = far_frame[i] / float(65536 / 2);
-	}
+		fread(far_frame, sizeof(short), audioLength1s, fp_far);
+		fread(near_frame, sizeof(short), audioLength1s, fp_near);
 
-	emxArray_real32_T  *farEnd;
-	farEnd = emxCreateWrapper_real32_T(farEnd_f, audioLength1s, 1);
+		float *farEnd_f = new float[audioLength1s];
+		for (int i = 0; i < audioLength1s; i++)
+		{
+			farEnd_f[i] = far_frame[i] / float(65536 / 2);
+		}
+
+		emxArray_real32_T  *farEnd;
+		farEnd = emxCreateWrapper_real32_T(farEnd_f, audioLength1s, 1);
+
+
+		float *nearEnd_f = new float[audioLength1s];
+		for (int i = 0; i < audioLength1s; i++)
+		{
+			nearEnd_f[i] = near_frame[i] / float(65536 / 2);
+		}
+
+		emxArray_real32_T  *nearEnd;
+		nearEnd = emxCreateWrapper_real32_T(nearEnd_f, audioLength1s, 1);
+
+		int delay = delayEstimation(farEnd, nearEnd);
+
+
+		float *echo_f = new float[audioLength1s];
+
+		emxArray_real32_T *echo, *m, *en;
+		echo = emxCreateWrapper_real32_T(echo_f, audioLength1s, 1);
+		m = emxCreateWrapper_real32_T(echo_f, 20, 1);
+		en = emxCreateWrapper_real32_T(echo_f, audioLength1s, 1);
+
+		NLMS(nearEnd, farEnd, 20, 1, 0, echo, m, en);
 	
-
-	float *nearEnd_f = new float[audioLength1s];
-	for (int i = 0; i < audioLength1s; i++)
-	{
-		nearEnd_f[i] = near_frame[i] / float(65536 / 2);
+		int a = 0;
 	}
-
-	emxArray_real32_T  *nearEnd;
-	nearEnd = emxCreateWrapper_real32_T(nearEnd_f, audioLength1s, 1);
-
-	int delay = delayEstimation(farEnd, nearEnd);
-
-
-	float *echo_f = new float[audioLength1s];
-
-
-
-
 
 	return 0;
 

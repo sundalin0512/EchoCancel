@@ -2,7 +2,7 @@
  * File: _coder_delayEstimation_mex.h
  *
  * MATLAB Coder version            : 3.3
- * C/C++ source code generated on  : 27-Apr-2017 20:29:10
+ * C/C++ source code generated on  : 27-Apr-2017 21:17:15
  */
 
 #ifndef _CODER_DELAYESTIMATION_MEX_H
